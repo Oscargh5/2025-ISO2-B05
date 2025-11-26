@@ -1,12 +1,14 @@
 # 🧩 Grupo Funcional 5 — Lado Cliente
-Este módulo contiene toda la documentación correspondiente a los requisitos del **lado cliente** del Grupo Funcional 5, orientado a las funcionalidades que realizan directamente los usuarios finales (estudiantes y profesores) a través de la interfaz gráfica.
 
-El objetivo de este grupo funcional es cubrir las capacidades relacionadas con:
-- Gestión académica por parte del profesor
-- Interacción social y académica del estudiante
-- Asociación de bibliografía a asignaturas
-- Creación y participación en grupos de estudio
-- Gestión de grupos de investigación
+Este módulo contiene la documentación completa del **lado cliente** del Grupo Funcional 5, incluyendo tanto los **requisitos funcionales**, como los **casos de uso** y los **diagramas de análisis** correspondientes.
+
+El objetivo de este grupo funcional en el cliente es cubrir:
+
+* Acceso y unión a grupos de estudio y clubs de lectura
+* Creación de asignaturas
+* Gestión de bibliografía por parte del profesor
+* Creación de grupos de estudio
+* Creación de grupos de investigación
 
 ---
 
@@ -18,159 +20,198 @@ El siguiente diagrama representa la interacción entre los actores del lado clie
 
 ---
 
-## 📃 Resumen de Casos de Uso del Cliente
+# 📃 Resumen de Casos de Uso del Cliente
 
-| ID | Caso de Uso | Actor Principal | Descripción breve |
-|----|--------------|-----------------|-------------------|
-| **CU-06** | Acceder a grupos de estudio y clubs de lectura | Estudiante | Permite visualizar y unirse a grupos creados por profesores o la biblioteca. |
-| **CU-07** | Crear asignatura | Profesor | Permite registrar nuevas asignaturas en el sistema. |
-| **CU-08** | Gestionar bibliografía específica | Profesor | Permite asociar material bibliográfico a las asignaturas creadas. |
-| **CU-09** | Crear grupo de estudio | Profesor | Permite crear grupos de estudio vinculados a sus asignaturas. |
-| **CU-10** | Crear grupo de investigación | Profesor | Permite crear grupos de investigación asociados a líneas o proyectos. |
-
----
-
-## 📌 Descripción de Casos de Uso
-
-A continuación se encuentran los casos de uso detallados que forman parte de este grupo funcional. Cada uno incluye: actores, precondiciones, postcondiciones, flujo normal, flujos alternativos y reglas de negocio.
+| ID        | Caso de Uso                                    | Actor Principal | Descripción breve                                                   |
+| --------- | ---------------------------------------------- | --------------- | ------------------------------------------------------------------- |
+| **CU-06** | Acceder a grupos de estudio y clubs de lectura | Estudiante      | Permite visualizar grupos disponibles y unirse a ellos.             |
+| **CU-07** | Crear asignatura                               | Profesor        | Permite registrar nuevas asignaturas en el sistema.                 |
+| **CU-08** | Gestionar bibliografía específica              | Profesor        | Permite asociar material bibliográfico a las asignaturas.           |
+| **CU-09** | Crear grupo de estudio                         | Profesor        | Permite crear grupos de estudio vinculados a una asignatura.        |
+| **CU-10** | Crear grupo de investigación                   | Profesor        | Permite crear grupos de investigación asociados a líneas/proyectos. |
 
 ---
 
-### 🎓 **CU-06 — Acceder a grupos de estudio y clubs de lectura**  
-**Requisito asociado:** RF-06  
-**Actor principal:** Estudiante  
+# 📌 1. Descripción de Casos de Uso
 
-**Descripción:**  
-El sistema permite al estudiante visualizar los grupos disponibles y unirse a aquellos que estén activos.
+## 🎓 **CU-06 — Acceder a grupos de estudio y clubs de lectura**
 
-**Precondiciones:**  
-- El estudiante ha iniciado sesión mediante SSO.
-- Existen grupos disponibles.
+**Requisito asociado:** RF-06
+**Actor principal:** Estudiante
 
-**Postcondiciones:**  
-- El estudiante queda unido al grupo seleccionado.
+**Descripción:**
+El estudiante visualiza los grupos disponibles y puede unirse a ellos.
 
-**Flujo principal:**  
-1. El estudiante accede al módulo de grupos.  
-2. El sistema muestra los grupos disponibles.  
-3. Selecciona un grupo y visualiza la información.  
-4. Solicita unirse.  
-5. El sistema confirma la operación.  
+**Precondiciones:**
 
-**Flujos alternativos:**  
-- El grupo está completo.  
-- El grupo es privado y requiere aprobación.  
+* El estudiante ha iniciado sesión mediante SSO.
+* Existen grupos disponibles.
 
-**Reglas de negocio:**  
-- El estudiante puede unirse a múltiples grupos.  
-- Los grupos pueden ser públicos o privados.
+**Postcondiciones:**
 
----
+* El estudiante queda unido al grupo seleccionado.
 
-### 🧑‍🏫 **CU-07 — Crear asignatura**  
-**Requisito asociado:** RF-07  
-**Actor principal:** Profesor  
+**Flujo principal:**
 
-**Descripción:**  
-Permite a un profesor crear asignaturas nuevas en el sistema.
+1. Accede al módulo de grupos.
+2. El sistema muestra los grupos disponibles.
+3. Selecciona un grupo.
+4. Consulta información detallada.
+5. Solicita unirse.
+6. El sistema confirma la operación.
 
-**Precondiciones:**  
-- El profesor tiene permisos adecuados.  
+**Flujos alternativos:**
 
-**Postcondiciones:**  
-- La asignatura queda registrada.  
-
-**Flujo principal:**  
-1. El profesor accede a “Mis asignaturas”.  
-2. Selecciona “Crear asignatura”.  
-3. Introduce los datos requeridos.  
-4. El sistema valida la información.  
-5. La asignatura es creada.  
-
-**Flujos alternativos:**  
-- Código ya existente.  
-- Datos incompletos.  
-
-**Reglas de negocio:**  
-- El código debe ser único.  
+* El grupo está completo.
+* El grupo es privado y requiere aprobación.
 
 ---
 
-### 📚 **CU-08 — Gestionar bibliografía específica**  
-**Requisito asociado:** RF-08  
-**Actor principal:** Profesor  
+## 🧑‍🏫 **CU-07 — Crear asignatura**
 
-**Descripción:**  
-El profesor puede añadir, eliminar o modificar bibliografía recomendada para una asignatura.
+**Requisito asociado:** RF-07
+**Actor principal:** Profesor
 
-**Precondiciones:**  
-- La asignatura existe.  
-- El recurso bibliográfico está registrado.  
+**Descripción:**
+Permite registrar nuevas asignaturas en el sistema.
 
-**Postcondiciones:**  
-- La bibliografía queda actualizada.  
+**Precondiciones:**
 
-**Flujo principal:**  
-1. El profesor abre la asignatura.  
-2. Accede a “Bibliografía recomendada”.  
-3. Añade o elimina recursos.  
-4. El sistema valida los cambios.  
-5. Se actualiza la lista.
+* El profesor tiene permisos adecuados.
 
-**Flujos alternativos:**  
-- Recurso no existe.  
-- El recurso es obligatorio y no puede eliminarse.
+**Postcondiciones:**
+
+* La asignatura queda registrada.
+
+**Flujo principal:**
+
+1. Accede a “Mis asignaturas”.
+2. Selecciona “Crear asignatura”.
+3. Rellena los datos requeridos.
+4. El sistema valida la información.
+5. La asignatura se crea correctamente.
+
+**Flujos alternativos:**
+
+* Código de asignatura ya existente.
+* Datos incompletos.
 
 ---
 
-### 👥 **CU-09 — Crear grupo de estudio**  
-**Requisito asociado:** RF-09  
-**Actor principal:** Profesor  
+## 📚 **CU-08 — Gestionar bibliografía específica**
 
-**Descripción:**  
-Permite crear grupos de estudio asociados a una asignatura.
+**Requisito asociado:** RF-08
+**Actor principal:** Profesor
 
-**Precondiciones:**  
-- La asignatura existe y pertenece al profesor.
+**Descripción:**
+Permite añadir, eliminar o modificar bibliografía recomendada.
 
-**Postcondiciones:**  
-- El grupo queda visible para estudiantes.
+**Precondiciones:**
 
-**Flujo principal:**  
-1. Seleccionar asignatura.  
-2. Pulsar “Crear grupo de estudio”.  
-3. Introducir datos.  
-4. Validación.  
+* La asignatura existe.
+* Los recursos bibliográficos son válidos.
+
+**Postcondiciones:**
+
+* La lista de bibliografía queda actualizada.
+
+**Flujo principal:**
+
+1. Abre la asignatura.
+2. Accede a “Bibliografía específica”.
+3. Añade o elimina recursos.
+4. El sistema valida los cambios.
+5. Actualiza la lista.
+
+---
+
+## 👥 **CU-09 — Crear grupo de estudio**
+
+**Requisito asociado:** RF-09
+**Actor principal:** Profesor
+
+**Descripción:**
+Permite al profesor crear grupos de estudio asociados a sus asignaturas.
+
+**Precondiciones:**
+
+* La asignatura existe y pertenece al profesor.
+
+**Postcondiciones:**
+
+* El grupo queda visible para los estudiantes.
+
+**Flujo principal:**
+
+1. Selecciona la asignatura.
+2. Pulsa “Crear grupo de estudio”.
+3. Introduce los datos.
+4. Validación.
 5. Registro del grupo.
 
-**Flujos alternativos:**  
-- Datos incompletos.  
-- Nombre duplicado.
-
 ---
 
-### 🔬 **CU-10 — Crear grupo de investigación**  
-**Requisito asociado:** RF-10  
-**Actor principal:** Profesor  
+## 🔬 **CU-10 — Crear grupo de investigación**
 
-**Descripción:**  
-Permite al profesor crear grupos de investigación.
+**Requisito asociado:** RF-10
+**Actor principal:** Profesor
 
-**Precondiciones:**  
-- El profesor pertenece a un departamento válido.
+**Descripción:**
+Permite crear grupos de investigación académica.
 
-**Postcondiciones:**  
-- El grupo queda registrado.
+**Precondiciones:**
 
-**Flujo principal:**  
-1. Acceder al módulo “Grupos de investigación”.  
-2. Pulsar “Crear grupo”.  
-3. Introducir nombre, temática y miembros.  
-4. Validación.  
+* El profesor pertenece a un departamento válido.
+
+**Postcondiciones:**
+
+* El grupo queda registrado.
+
+**Flujo principal:**
+
+1. Accede al módulo “Grupos de investigación”.
+2. Pulsa “Crear grupo”.
+3. Introduce nombre, temática y miembros.
+4. Validación.
 5. Confirmación.
 
-**Flujos alternativos:**  
-- Nombre duplicado.  
-- Miembros inválidos.
+---
+
+# 🧠 2. Fase de Análisis — Diagramas de Análisis de Clases
+
+Los siguientes diagramas representan la estructura lógica interna del lado cliente para cada caso de uso.
+Siguen los estereotipos UML recomendados en análisis:
 
 ---
+
+## 🎓 **Análisis CU-06 — Acceder a grupos de estudio y clubs de lectura**
+
+![Análisis CU06](./analisis-acceso-grupos.png)
+
+---
+
+## 🧑‍🏫 **Análisis CU-07 — Crear asignatura**
+
+![Análisis CU07](./analisis-crear-asignatura.png)
+
+---
+
+## 📚 **Análisis CU-08 — Gestionar bibliografía específica**
+
+![Análisis CU08](./analisis-gestion-bibliografica.png)
+
+---
+
+## 👥 **Análisis CU-09 — Crear grupo de estudio**
+
+![Análisis CU09](./analisis-grupo-estudio.png)
+
+---
+
+## 🔬 **Análisis CU-10 — Crear grupo de investigación**
+
+![Análisis CU10](./analisis-grupo-investigacion.png)
+
+---
+
+

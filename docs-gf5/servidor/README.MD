@@ -169,3 +169,62 @@ Registra un grupo de investigación introducido por un profesor.
 - Profesor sin permisos.
 
 ---
+
+# 🧠 **Fase de Análisis (Servidor)**
+
+En esta fase se estudian los comportamientos, reglas de negocio y responsabilidades que asumirá el servidor para cumplir los requisitos. Se describen las entidades principales, las validaciones críticas y las interacciones internas necesarias para garantizar coherencia y seguridad en el backend.
+
+### 🔍 Elementos analizados
+
+#### ✔ **Actores internos del servidor**
+
+* **Sistema**: ejecuta validaciones automáticas, gestiona procesos internos y coordina operaciones.
+* **Administrador**: puede crear y validar asignaturas, grupos de estudio e investigación.
+* **Bibliotecario**: gestiona la bibliografía asociada a las asignaturas.
+
+#### ✔ **Entidades principales**
+
+* **Estudiante**
+* **Profesor**
+* **Asignatura**
+* **Grupo de estudio**
+* **Grupo de investigación**
+* **Recurso bibliográfico**
+
+---
+
+## 📃 Resumen de Casos de Uso del Servidor
+
+| ID         | Caso de Uso (Servidor)                    | Actor Principal         | Descripción                                                                 |
+| ---------- | ----------------------------------------- | ----------------------- | --------------------------------------------------------------------------- |
+| **SRV-06** | Registrar unión del estudiante a un grupo | Sistema                 | Procesa la solicitud de un estudiante para unirse a un grupo y la almacena. |
+| **SRV-07** | Validar y registrar asignatura            | Sistema / Administrador | Valida los datos introducidos por el profesor y registra la asignatura.     |
+| **SRV-08** | Asociar bibliografía a asignatura         | Sistema / Bibliotecario | Valida y registra los recursos bibliográficos asociados a una asignatura.   |
+| **SRV-09** | Registrar grupo de estudio                | Sistema / Administrador | Crea y registra un nuevo grupo de estudio asociado a una asignatura.        |
+| **SRV-10** | Registrar grupo de investigación          | Sistema / Administrador | Valida y registra un grupo de investigación creado por un profesor.         |
+
+---
+
+# 📌 Casos de Uso Detallados del Servidor
+
+A continuación se detallan los casos de uso internos que ejecuta el backend cuando los actores del cliente realizan acciones en la interfaz.
+
+---
+
+## Diagrama de Clases de Análisis (SRV-06)
+![Diagrama de Clases - SRV-06](./analisis-registrar-grupoest.jpeg)
+
+## Diagrama de Clases de Análisis (SRV-07)
+![Diagrama de Clases - SRV-07](./analisis-validar-registrar-asg.jpeg)
+
+## Diagrama de Clases de Análisis (SRV-08)
+![Diagrama de Clases - SRV-08](./analisis-asociar-bibl.jpeg)
+
+## Diagrama de Clases de Análisis (SRV-09)
+![Diagrama de Clases - SRV-09](./analisis-registrar-grupo-est.jpeg)
+
+## Diagrama de Clases de Análisis (SRV-10)
+![Diagrama de Clases - SRV-10](./analisis-registrar-grupo-inv.jpeg)
+
+
+
