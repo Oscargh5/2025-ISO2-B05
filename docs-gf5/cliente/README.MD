@@ -313,3 +313,10 @@ Estas clases sirven para almacenar y manipular datos que el servidor envía y qu
 ![Diagrama de Clases del Cliente GF5](./diagrama-clases-cliente-gf5.jpg)
 
 
+## 🖥️ Implementación Backend del Cliente
+
+![Implementación Backend del Cliente GF5](./ClienteBackend.png)
+
+## 🖥️ Implementación Frontend del Cliente
+
+![Implementación Frontend del Cliente GF5](./ClienteFrontend.png)
