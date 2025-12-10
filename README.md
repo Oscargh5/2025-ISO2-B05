@@ -310,3 +310,13 @@ Estas clases sirven para almacenar y manipular datos que el servidor envía y qu
 ## 🖼️ Diagrama de Clases del Cliente (GF5)
 
 ![Diagrama de Clases del Cliente GF5](./DiagramasCliente/Diagrama-Clases-Cliente.png)
+
+---
+
+# 🧪 *Fase de Testing*
+
+En esta fase realizaremos tests al código del cliente implementado haciendo uso de junit.
+
+<img width="448" height="511" alt="imagen" src="https://github.com/user-attachments/assets/bd4d67a3-e2b3-4ecf-a2aa-72ecc8a031fd" />
+<img width="439" height="404" alt="imagen" src="https://github.com/user-attachments/assets/2dd57894-bf46-48b4-be57-13aa372e8777" />
+
