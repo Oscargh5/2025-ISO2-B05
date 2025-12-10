@@ -334,3 +334,13 @@ Este diseño soporta los casos internos del GF5:
 # 🖼️ Diagrama de Clases del Servidor
 
 ![Diagrama de Clases del Servidor GF5](./DiagramasServidor/Diagrama-Clases-Servidor.jpg)
+
+---
+
+# 🧪 *Fase de Testing*
+
+En esta fase realizaremos tests unitarios al código implementado del servidor haciendo uso de junit.
+
+<img width="383" height="551" alt="imagen" src="https://github.com/user-attachments/assets/a1f0f814-249d-40c7-9756-e30551d2a277" />
+<img width="364" height="380" alt="imagen" src="https://github.com/user-attachments/assets/249808e6-bfd3-4758-bcb4-096b3a4a5599" />
+
