@@ -61,3 +61,9 @@ El sistema permite al profesor solicitar un estudio bibliométrico basado en div
 * El formato de los parámetros de búsqueda es incorrecto.
 
 ---
+
+## 🧠 2. Fase de Análisis — Diagramas del Servidor
+
+# Diagrama de análisis del caso de uso:
+
+![Diagrama Analisis](./diagramas-cliente/analisis-gf6-cliente.png)
