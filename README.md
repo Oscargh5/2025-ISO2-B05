@@ -94,3 +94,28 @@ El sistema permite al administrador generar estadísticas globales del uso del s
 
 ---
 
+# 🧠 **Fase de Análisis (Servidor)**
+
+En esta fase se estudian los comportamientos, reglas de negocio y responsabilidades que asumirá el servidor para cumplir los requisitos. Se describen las entidades principales, las validaciones críticas y las interacciones internas necesarias para garantizar coherencia y seguridad en el backend.
+
+### 🔍 Elementos analizados
+
+#### ✔ **Actores internos del servidor**
+
+* **Administrador**: puede generar informes de actividad
+* **Bibliotecario**: puede generar estadísticas globales
+
+---
+
+# 📌 Casos de Uso Detallados del Servidor
+
+A continuación se detallan los casos de uso internos que ejecuta el backend cuando los actores del cliente realizan acciones en la interfaz.
+
+---
+
+## Diagrama de Clases de Análisis (SRV-14)
+![Diagrama de Clases - SRV-14](./diagramas-servidor/dca-cdu14-servidor.png)
+
+## Diagrama de Clases de Análisis (SRV-17)
+![Diagrama de Clases - SRV-17](./diagramas-servidor/dca-cdu17-servidor.png)
+
