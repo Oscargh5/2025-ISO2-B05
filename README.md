@@ -190,3 +190,10 @@ Este diseño garantiza una **separación clara de responsabilidades** y mantiene
 
 ![Diagrama Analisis](./diagramas-cliente/DiagramaClasesClienteIt6.png)
 
+## 💻 3. Fase de Implementación
+
+En esta fase se llevará a cabo la implementación del código del cliente acorde a los diagramas anteriores, por medio de ingeniería directa.
+
+### ⚙️  Backend
+
+<img width="350" src="./diagramas-cliente/Backend-cliente.png" />
