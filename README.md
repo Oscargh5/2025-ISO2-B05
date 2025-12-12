@@ -67,3 +67,126 @@ El sistema permite al profesor solicitar un estudio bibliométrico basado en div
 # Diagrama de análisis del caso de uso:
 
 ![Diagrama Analisis](./diagramas-cliente/analisis-gf6-cliente.png)
+
+## 📐 Diagrama de Clases – Cliente (CU: Petición de Estudios Bibliométricos)
+
+Este apartado describe el **diagrama de clases del lado cliente**, elaborado siguiendo el modelo  
+**Presentación – Dominio – Persistencia**, y basado exclusivamente en los diagramas funcionales proporcionados.
+
+---
+
+## 🖥️ Capa de Presentación
+
+### UIEstudiosbibliometricos
+Clase responsable de la interacción con el usuario para la solicitud de estudios bibliométricos.
+
+**Métodos principales:**
+- `solicitarEstudio() : void`
+- `mostrarResultado(msg : String) : void`
+- `mostrarError(msg : String) : void`
+
+**Relaciones:**
+- Depende de `ControladorEstudioBibliometrico`
+
+---
+
+## 🧠 Capa de Dominio
+
+### ControladorEstudioBibliometrico
+Gestiona el flujo del caso de uso y coordina la validación y el acceso a persistencia.
+
+**Métodos principales:**
+- `solicitarEstudio(solicitud : SolicitudEstudioBibliometrico) : void`
+
+**Relaciones:**
+- Usa `ValidadorEstudioBibliometrico`
+- Accede a `SolicitudEstudioBibliometricoRepository`
+- Accede a `ProfesorRepository`
+
+---
+
+### ValidadorEstudioBibliometrico
+Encargado de validar los datos de la solicitud antes de su procesamiento.
+
+**Métodos principales:**
+- `validar(solicitud : SolicitudEstudioBibliometrico) : boolean`
+
+---
+
+### SolicitudEstudioBibliometrico
+Entidad de dominio que representa la solicitud de un estudio bibliométrico.
+
+**Atributos:**
+- `profesor : Profesor`
+- `parametros : String`
+
+**Métodos principales:**
+- `getProfesor() : Profesor`
+- `setProfesor(p : Profesor) : void`
+- `getParametros() : String`
+- `setParametros(p : String) : void`
+
+**Relaciones:**
+- Asociación **1..1** con `Profesor`
+
+---
+
+### Profesor
+Entidad de dominio que representa al profesor solicitante.
+
+**Atributos:**
+- `id : String`
+- `nombre : String`
+
+**Métodos principales:**
+- `getId() : String`
+- `setId(id : String) : void`
+- `getNombre() : String`
+- `setNombre(n : String) : void`
+
+---
+
+## 🗄️ Capa de Persistencia
+
+### SolicitudEstudioBibliometricoRepository
+Repositorio encargado de la gestión de solicitudes de estudios bibliométricos.
+
+**Atributos:**
+- `solicitudes : List<SolicitudEstudioBibliometrico>`
+
+**Métodos de consulta:**
+- `obtenerTodas() : List<SolicitudEstudioBibliometrico>`
+- `obtenerPorProfesor(profesor : Profesor) : SolicitudEstudioBibliometrico`
+- `existeSolicitud(profesor : Profesor) : boolean`
+
+---
+
+### ProfesorRepository
+Repositorio encargado de la gestión de profesores.
+
+**Atributos:**
+- `profesores : List<Profesor>`
+
+**Métodos de consulta:**
+- `obtenerPorId(id : String) : Profesor`
+- `obtenerTodos() : List<Profesor>`
+- `existeProfesor(id : String) : boolean`
+
+---
+
+## 🔗 Relaciones entre Clases
+
+- `UIEstudiosbibliometricos` → `ControladorEstudioBibliometrico` (dependencia)
+- `ControladorEstudioBibliometrico` → `ValidadorEstudioBibliometrico` (dependencia)
+- `ControladorEstudioBibliometrico` → `SolicitudEstudioBibliometricoRepository` (dependencia)
+- `ControladorEstudioBibliometrico` → `ProfesorRepository` (dependencia)
+- `SolicitudEstudioBibliometrico` — `Profesor` (asociación **1..1**)
+- `SolicitudEstudioBibliometricoRepository` — `SolicitudEstudioBibliometrico`
+- `ProfesorRepository` — `Profesor`
+
+---
+
+Este diseño garantiza una **separación clara de responsabilidades** y mantiene coherencia con la arquitectura utilizada en el lado servidor del proyecto.
+
+![Diagrama Analisis](./diagramas-cliente/DiagramaClasesClienteIt6.png)
+
