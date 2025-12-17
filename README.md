@@ -110,3 +110,179 @@ Este requisito no funcional condiciona el diseño del cliente, asegurando que lo
 
 ---
 
+## 🧩 Diagrama de Clases – Componente Cliente (Configuración del Sistema)
+
+En esta iteración se ha definido el **diagrama de clases del lado cliente** para el **caso de uso _“Administrar y configurar el sistema”_**, siguiendo una arquitectura **en capas** que separa claramente **presentación, dominio y persistencia**.
+
+---
+
+## 📐 Arquitectura en Capas
+
+El diseño del componente cliente se organiza en tres capas bien diferenciadas:
+
+- **Presentación**: gestiona la interacción entre el administrador y el sistema.
+- **Dominio**: contiene la lógica de negocio asociada a la configuración.
+- **Persistencia**: se encarga del almacenamiento y recuperación de la configuración del sistema.
+
+Esta separación permite mejorar la **mantenibilidad**, **escalabilidad** y **testabilidad** del sistema.
+
+---
+
+## 🖥️ Capa de Presentación
+
+### `UIEstudioBibliometrico`
+
+Clase responsable de la interacción con el **Administrador**.
+
+**Responsabilidades:**
+- Mostrar la interfaz de configuración del sistema.
+- Recoger los datos introducidos por el administrador.
+- Delegar las acciones al controlador de configuración.
+
+**Atributos principales:**
+- `controlador : ControladorConfiguracion`
+- `adminActual : Administrador`
+
+**Relaciones:**
+- Asociación 1..1 con `ControladorConfiguracion`.
+- Asociación 1..1 con `Administrador`.
+
+---
+
+## ⚙️ Capa de Dominio
+
+### `ControladorConfiguracion`
+
+Actúa como intermediario entre la interfaz de usuario y la lógica de negocio.
+
+**Responsabilidades:**
+- Recibir solicitudes desde la capa de presentación.
+- Coordinar la validación de los datos.
+- Delegar la aplicación de cambios al servicio de configuración.
+
+**Atributos:**
+- `validador : ValidadorConfiguracion`
+- `servicio : ServicioConfiguracion`
+
+---
+
+### `ServicioConfiguracion`
+
+Encapsula la lógica de negocio relacionada con la configuración del sistema.
+
+**Responsabilidades:**
+- Gestionar la configuración activa del sistema.
+- Coordinar la carga y persistencia de la configuración.
+
+**Atributos:**
+- `repo : ConfiguracionRepositorio`
+- `configActual : ConfiguracionSistema`
+
+---
+
+### `ValidadorConfiguracion`
+
+Clase encargada de comprobar la validez de los datos de configuración.
+
+**Responsabilidades:**
+- Verificar reglas y restricciones de los parámetros.
+- Registrar errores de validación.
+
+**Atributos:**
+- `errores : List<String>`
+- `reglas : List<ReglaValidacion>`
+
+---
+
+### `ConfiguracionSistema`
+
+Entidad principal del dominio que representa la configuración global del sistema.
+
+**Atributos:**
+- `parametros : Map<String, String>`
+- `ultimaModificacion : Datetime`
+
+**Relaciones:**
+- Composición con `ParametroConfiguracion`, ya que los parámetros no existen fuera de la configuración del sistema.
+
+---
+
+### `ParametroConfiguracion`
+
+Representa un parámetro individual del sistema.
+
+**Atributos:**
+- `clave : String`
+- `valor : String`
+- `tipo : TipoParametro`
+- `descripcion : String`
+
+---
+
+### `TipoParametro` (Enumeración)
+
+Define los tipos admitidos para los parámetros de configuración:
+- `STRING`
+- `INT`
+- `DOUBLE`
+- `BOOLEAN`
+
+---
+
+### `Administrador`
+
+Entidad que representa al usuario con permisos de administración y configuración.
+
+**Atributos:**
+- `id : String`
+- `nombre : String`
+- `credencial : Credencial`
+
+---
+
+## 💾 Capa de Persistencia
+
+### `ConfiguracionRepositorio`
+
+Interfaz que define el contrato para el acceso a la configuración del sistema.
+
+**Responsabilidades:**
+- Cargar la configuración persistida.
+- Guardar los cambios realizados.
+
+---
+
+### `ConfiguracionRepositorioFichero`
+
+Implementación concreta del repositorio basada en almacenamiento en fichero.
+
+**Atributos:**
+- `ruta : String`
+- `formato : String`
+
+**Relaciones:**
+- Implementa la interfaz `ConfiguracionRepositorio`.
+
+---
+
+## 🔗 Relaciones clave del diagrama
+
+- La capa de **presentación** se comunica exclusivamente con el **controlador**.
+- El **controlador** delega la lógica de negocio en el **servicio de configuración**.
+- El **servicio** gestiona la entidad `ConfiguracionSistema` y accede a persistencia mediante un repositorio.
+- La validación se realiza de forma desacoplada mediante `ValidadorConfiguracion`.
+- La persistencia se abstrae mediante una interfaz, permitiendo futuras implementaciones (BD, API, etc.).
+
+---
+
+## ✅ Conclusión
+
+El diagrama de clases del componente cliente introduce un modelo coherente y alineado con los patrones **MVC** y **Repository**, asegurando:
+
+- Bajo acoplamiento entre capas.
+- Alta cohesión de responsabilidades.
+- Facilidad de mantenimiento y extensión en futuras iteraciones.
+
+![Diagrama Clases](./diagramas-cliente/DiagramaClasesClienteIt7.pngg)
+
+
