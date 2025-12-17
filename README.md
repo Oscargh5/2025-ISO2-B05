@@ -283,6 +283,6 @@ El diagrama de clases del componente cliente introduce un modelo coherente y ali
 - Alta cohesión de responsabilidades.
 - Facilidad de mantenimiento y extensión en futuras iteraciones.
 
-![Diagrama Clases](./diagramas-cliente/DiagramaClasesClienteIt7.pngg)
+![Diagrama Clases](./diagramas-cliente/DiagramaClasesClienteIt7.png)
 
 
