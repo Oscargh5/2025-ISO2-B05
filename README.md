@@ -215,3 +215,12 @@ En esta fase se llevará a cabo la implementación del código del servidor acor
 ### ⚙️  Backend
 
 <img width="350" src="./diagramas-servidor/Backend-servidor-gf7.png" />
+
+---
+
+# 🧪 4. *Fase de Testing*
+
+En esta fase se probará el código implementado en la fase anterior mediante el uso de tests unitarios.
+
+<img width="437" height="781" alt="imagen" src="https://github.com/user-attachments/assets/8b221d04-0ef4-4a22-81df-e2a220126d44" />
+
