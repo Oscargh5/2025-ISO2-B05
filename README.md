@@ -124,3 +124,86 @@ Este requisito no funcional condiciona el diseño del servidor, garantizando:
 
 ---
 
+---
+
+## 🏛️ Diagrama de Clases del Servidor — Grupo Funcional 7
+
+El siguiente diagrama de clases representa el **diseño del lado servidor** para el caso de uso **CU-16 – Gestionar y configurar el sistema**, correspondiente al **Grupo Funcional 7**.
+
+Este diseño refleja una arquitectura en **tres capas**, separando claramente responsabilidades y facilitando el mantenimiento, la escalabilidad y la interoperabilidad con otros sistemas.
+
+---
+
+### 📷 Diagrama de Clases
+
+![Diagrama de Clases Servidor GF7](./diagramas-servidor/diagrama-clases-gf7-servidor.png)
+
+---
+
+## 📝 Explicación del Diseño
+
+### **1️⃣ Capa de Presentación (`Presentacion.server`)**
+
+**Clase incluida:**
+- `UIConfiguracionSistema`
+
+**Responsabilidad:**
+- Recibir la solicitud del administrador desde la interfaz.
+- Enviar los datos de configuración al controlador de dominio.
+- Mostrar la confirmación o error devuelto por el servidor.
+
+Esta capa no contiene lógica de negocio, actuando únicamente como intermediaria entre el cliente y el dominio.
+
+---
+
+### **2️⃣ Capa de Dominio (`Dominio.server`)**
+
+**Clases incluidas:**
+- `ControladorConfiguracion`
+- `ValidarConfiguracion`
+- `ConfiguracionSistema`
+
+**Responsabilidad:**
+- Orquestar el caso de uso CU-16.
+- Validar los parámetros de configuración recibidos.
+- Aplicar las reglas de negocio.
+- Coordinar el acceso a la persistencia.
+
+El controlador centraliza el flujo del caso de uso, mientras que la validación se desacopla en una clase específica para cumplir el principio de responsabilidad única.
+
+---
+
+### **3️⃣ Capa de Persistencia (`Persistencia.server`)**
+
+**Clase incluida:**
+- `RepositorioConfiguracion`
+
+**Responsabilidad:**
+- Almacenar de forma persistente la configuración del sistema.
+- Recuperar la configuración actual cuando sea necesario.
+
+Esta capa facilita la integración con otros servicios externos, cumpliendo el requisito no funcional **RNF-10 (Interoperabilidad)**.
+
+---
+
+## 🔁 Flujo resumido de ejecución
+
+| Paso | Componente |
+|-----|-----------|
+| 1 | UIConfiguracionSistema |
+| 2 | ControladorConfiguracion |
+| 3 | ValidarConfiguracion |
+| 4 | RepositorioConfiguracion |
+| 5 | Respuesta al administrador |
+
+---
+
+## ✅ Resumen del Diseño
+
+| Capa | Función principal | Clases |
+|------|------------------|--------|
+| Presentación | Recepción de solicitudes | `UIConfiguracionSistema` |
+| Dominio | Lógica de negocio | `ControladorConfiguracion`, `ValidarConfiguracion`, `ConfiguracionSistema` |
+| Persistencia | Acceso a datos | `RepositorioConfiguracion` |
+
+---
