@@ -293,3 +293,11 @@ En esta fase se llevará a cabo la implementación del código del cliente acord
 ### ⚙️  Backend
 
 <img width="350" src="./diagramas-cliente/Backend-cliente-gf7.png" />
+
+---
+
+# 🧪 4. *Fase de Testing*
+
+En esta fase se comprobará el código realizado en la fase anterior mediante el uso de tests unitarios.
+
+<img width="437" height="781" alt="imagen" src="https://github.com/user-attachments/assets/d8161c69-3303-4bda-a2d7-0bd30227e75b" />
