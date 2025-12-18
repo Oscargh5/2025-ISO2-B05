@@ -210,7 +210,7 @@ Esta capa facilita la integración con otros servicios externos, cumpliendo el r
 
 ## 💻 3. Fase de Implementación
 
-En esta fase se llevará a cabo la implementación del código del cliente acorde a los diagramas anteriores, por medio de ingeniería directa.
+En esta fase se llevará a cabo la implementación del código del servidor acorde a los diagramas anteriores, por medio de ingeniería directa.
 
 ### ⚙️  Backend
 
