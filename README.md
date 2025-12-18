@@ -286,3 +286,10 @@ El diagrama de clases del componente cliente introduce un modelo coherente y ali
 ![Diagrama Clases](./diagramas-cliente/DiagramaClasesClienteIt7.png)
 
 
+## 💻 3. Fase de Implementación
+
+En esta fase se llevará a cabo la implementación del código del cliente acorde a los diagramas anteriores, por medio de ingeniería directa.
+
+### ⚙️  Backend
+
+<img width="350" src="./diagramas-cliente/Backend-cliente-gf7.png" />
