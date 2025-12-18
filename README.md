@@ -207,3 +207,11 @@ Esta capa facilita la integración con otros servicios externos, cumpliendo el r
 | Persistencia | Acceso a datos | `RepositorioConfiguracion` |
 
 ---
+
+## 💻 3. Fase de Implementación
+
+En esta fase se llevará a cabo la implementación del código del cliente acorde a los diagramas anteriores, por medio de ingeniería directa.
+
+### ⚙️  Backend
+
+<img width="350" src="./diagramas-servidor/Backend-servidor-gf7.png" />
